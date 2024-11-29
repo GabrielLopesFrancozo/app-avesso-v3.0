@@ -1,0 +1,552 @@
+/* Tutorial */
+.tutorial {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 3rem;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--gray-900);
+  z-index: 1000;
+
+  .img {
+    width: 350px;
+  }
+
+  .title {
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .tutorial-content {
+    height: 80%;
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+  }
+}
+
+/* Adaptação para telas menores que 768px - Smartphones */
+@media screen and (max-width: 768px) {
+
+  .tutorial {
+    padding: 1rem;
+    overflow: hidden;
+
+    .img {
+      width: 16rem;
+    }
+
+    .tutorial-content {
+      width: 100% !important;
+      max-height: 30rem;
+    }
+  }
+}
+
+/* Fim da estilização do tutorial ------------------------------------------------------------------------------------------ */
+
+/* Container utilizado em todas as páginas de criação de perfil */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 8px;
+  padding: 4rem;
+  background-color: var(--white);
+}
+
+/* Adaptação para telas menores que 768px - Smartphones */
+@media screen and (max-width: 768px) {
+
+  .container {
+    min-height: 50vh !important;
+  }
+
+  .bottom-container{
+    height: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* Container inferior */
+.bottom-container {
+  width: 100%;
+  min-height: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-inline: 10%;
+}
+
+.link {
+  color: var(--gray-300);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+.active {
+  color: var(--carmin);
+}
+
+/* Referente ao container de adicionar informações */
+
+@media screen and (min-width: 768px) {
+
+  .add-info-container {
+    width: 100%;
+    min-height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid var(--gray-200);
+  }
+}
+
+
+/* Referente ao formulário */
+.form {
+  width: 100%;
+  padding: 0;
+}
+
+/* Mensagens de aviso sobre situação do envio da foto de perfil */
+.message-container {
+  min-width: 18rem;
+  height: 6rem;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+
+  .message {
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-inline: 10px;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  .message::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    display: block;
+    position: absolute;
+    top: -30%;
+    right: 50%;
+    transform: rotate(270deg) translate(-50%, 50%);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid currentColor;
+  }
+
+  .error {
+    background-color: var(--red);
+    color: var(--red);
+
+    .message-text {
+      color: var(--white);
+    }
+  }
+
+  .warning {
+    background-color: var(--yellow);
+    color: var(--yellow);
+
+    .message-text {
+      color: var(--gray-800);
+    }
+  }
+
+  .success {
+    background-color: var(--green);
+    color: var(--green);
+
+    .message-text {
+      color: var(--white);
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+
+/* Página criar perfil 1 */
+
+/* Referente à seleção de imagem */
+#picture__input {
+  display: none;
+}
+
+.picture {
+  width: 300px;
+  aspect-ratio: 1 / 1;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--carmin);
+  border: 2px dashed currentcolor;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+
+  .picture__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+
+  .change-icon,
+  .black-filter {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.1s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  .bi-camera-fill {
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.picture:hover {
+  .bi-camera-fill {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .change-icon {
+    display: flex;
+    color: var(--white);
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .black-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.no-border {
+  border: none;
+}
+
+.button {
+  width: 6rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-align: center;
+  color: var(--white);
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: var(--carmin);
+
+  .bi {
+    transform: rotate(45deg);
+  }
+}
+
+#editar-foto {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.input-group {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Fim da página criar perfil 1 */
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+
+/* Elementos comuns ao profile preview */
+
+/* Adaptação para telas menores que 768px - Smartphones */
+@media screen and (max-width: 768px) {
+  /* Ajusta o padding do container */
+  .container {
+    padding: 1rem;
+  }
+
+  /* Esconde o profile preview */
+  .profile-preview {
+    display: none;
+  }
+
+  .form {
+    width: 100%;
+    padding: 0;
+  }
+
+  /* Habilita as hashtags */
+  #user-hashtags-768px {
+    display: flex;
+  }
+
+  .picture {
+    width: 100px;
+    height: 100px;
+  }
+
+  .add-info-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 2px solid var(--gray-200);
+  }
+
+  p {
+    text-align: center;
+    color: var(--gray-700);
+  }
+
+  
+  .bio-usuario-reduzed {
+    display: flex !important;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+  }
+}
+
+.hashtags {
+  width: 100%;
+  max-height: 4rem;
+  overflow-y: auto; /* Usa "auto" para permitir rolagem apenas quando necessário */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que os itens se quebrem em várias linhas */
+  gap: 5px;
+}
+
+/* Barra de rolagem para o questions */
+.hashtags::-webkit-scrollbar {
+  width: 12px;
+}
+
+.hashtags::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: 150px;
+}
+
+.hashtags::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 6px;
+}
+
+.hashtags::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+  cursor: pointer;
+}
+
+.hashtag-item {
+  display: inline-flex; /* Garante que seja tratado como um item em linha */
+  white-space: nowrap; /* Impede quebra de palavras dentro de uma hashtag */
+  padding: 5px 10px; /* Espaçamento interno */
+  background-color: var(--gray-100); /* Fundo branco para contraste */
+  border-radius: 5px; /* Borda arredondada */
+  font-size: 14px; /* Tamanho da fonte */
+  color: #000; /* Cor do texto */
+  line-height: 1.2; /* Melhora o espaçamento entre linhas */
+}
+
+/* Adaptação para telas maiores que 768px - Desktops e Laptops */
+@media screen and (min-width: 768px) {
+  /* Referente ao profile preview */
+  .profile-preview {
+    width: 30rem;
+    min-height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--gray-200);
+    background-color: var(--white);
+
+    .qtd-questions {
+      color: var(--gray-700);
+      font-weight: 600;
+    }
+  }
+
+  /* Referente às hashtags */
+  #user-hashtags-768px {
+    display: none;
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+
+/* Página criar perfil 2 */
+
+.user-photo-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--gray-200);
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bio-usuario-reduzed {
+  display: none;
+}
+
+/* Fim da página criar perfil 2 */
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+
+/* Página criar perfil 4 */
+
+/* Forms */
+.add-question, .add-photo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+/* Selects */
+.questions {
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--gray-100);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: scroll;
+  overflow-x: hidden;
+
+  .question-title {
+    color: var(--gray-600);
+    text-align: left;
+  }
+
+  .question-answer {
+    color: var(--carmin);
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+}
+
+/* Barra de rolagem para o questions */
+.questions::-webkit-scrollbar {
+  width: 12px;
+}
+
+.questions::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: 150px;
+}
+
+.questions::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 6px;
+}
+
+.questions::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+  cursor: pointer;
+}
+
+
+/* Fim da página criar perfil 4 */

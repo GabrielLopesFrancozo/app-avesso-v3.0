@@ -1,0 +1,65 @@
+/* Roboto 400 and 700 - Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@400;700&display=swap');
+
+
+:root {
+    --carmin: #f82167;
+    --red: #f53232;
+    --green: #35cc30;
+    --yellow: #f1c40f;
+    --blue: #428dd3;
+    --pink: #e053a1;
+    --gray-900: #212529;
+    --gray-800: #343a40;
+    --gray-700: #495057;
+    --gray-600: #6c757d;
+    --gray-500: #adb5bd;
+    --gray-400: #ced4da;
+    --gray-300: #dee2e6;
+    --gray-200: #e9ecef;
+    --gray-100: #f8f9fa;
+    --ice: #fcfcfc;
+    --white: #fff;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--ice);
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+/* @media screen and (max-width: 768px) {
+    .main {
+        height: calc(100% - 5%);
+    }
+} */
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--gray-300);
+}

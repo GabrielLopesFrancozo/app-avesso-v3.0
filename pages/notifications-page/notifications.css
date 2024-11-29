@@ -1,0 +1,121 @@
+.notification-container {
+  width: 100%;
+  margin: 20px auto;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+/* Barra de rolagem para o questions */
+.notification-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notification-container::-webkit-scrollbar-track {
+  background: var(--ice);
+  border-radius: 10px;
+}
+
+.notification-container::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: 6px;
+}
+
+.notification-container::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+  cursor: pointer;
+}
+
+.top-bar {
+  width: 100%;
+  padding: 1rem;
+  padding-inline: 1.5rem;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+
+  .top-bar-icon {
+    font-size: 1.5rem;
+  }
+}
+
+.notification {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.notification:hover {
+  background-color: var(--gray-100);
+  cursor: pointer;
+}
+
+.notification-content {
+  flex-grow: 1; /* Permite que o conteúdo cresça para preencher o espaço */
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Oculta qualquer overflow */
+}
+
+.profile-photo img {
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.blur {
+  filter: blur(2px);
+}
+
+.notification-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* Alinha o texto em coluna */
+  overflow: hidden; /* Oculta qualquer overflow */
+}
+
+.notification-text strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.notification-text p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.time {
+  margin-left: 10px; /* Adiciona um pouco de espaço à esquerda */
+  font-size: 12px;
+  color: #888;
+}
+
+.modal-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#show-cantada-content {
+  width: 100%;
+  display: flex;
+  line-break: anywhere;
+}

@@ -1,0 +1,48 @@
+.input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 5px;
+    color: var(--gray-700);
+    font-size: 1rem;
+} 
+
+
+.input:hover {
+    border: 1px solid var(--gray-500);
+    transition: all 0.2s ease-in-out;
+}
+
+.input::placeholder {
+    color: var(--gray-500);
+    font-size: 0.8rem;
+}
+
+.input:focus {
+    border: 1px solid var(--gray-500);
+    transition: all 0.2s ease-in-out;
+
+    &::placeholder {
+        color: var(--gray-700);
+    }
+}
+
+.text-area {
+    width: 100%;
+    resize: none;
+}
+
+/* Adaptação para telas menores que 768px - Smartphones */
+@media screen and (max-width: 768px) {
+    .input {
+        padding: 0.8rem !important;
+        border: none !important;
+        border-bottom: 2px solid var(--gray-200) !important;
+        border-radius: 0;
+    }
+
+    .input::placeholder {
+        color: var(--gray-500);
+        font-size: 1rem;
+    }
+}

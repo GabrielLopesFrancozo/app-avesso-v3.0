@@ -1,0 +1,289 @@
+/* Configurações gerais */
+
+.logo-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo-container .logo {
+  width: 50%;
+  user-select: none;
+}
+
+.logo-container .logo-icon {
+  display: none;
+  user-select: none;
+}
+
+.active {
+  color: var(--carmin) !important;
+  font-weight: bold;
+  background-color: var(--gray-100);
+}
+
+.profile-pic-container {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 150px;
+  overflow: hidden;
+}
+
+.profile-pic-container .profile-pic {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Adaptação para telas maiores que 1024px - Desktops e Laptops */
+@media screen and (min-width: 1024px) {
+  /* Side Bar */
+  .side-bar {
+    width: 20rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-right: 1px solid var(--gray-200);
+    background-color: var(--white);
+    transition: all 0.05s linear;
+  }
+
+  /* Side Bar Header */
+  .side-bar-header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 5px;
+  }
+
+  /* Side Bar Nav */
+  .nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Nav List */
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  /* Nav Top */
+  .nav-top {
+    width: 100%;
+    height: 75%;
+    justify-content: flex-start;
+  }
+
+  /* Nav Bottom */
+  .nav-bottom {
+    width: 100%;
+    height: 25%;
+    justify-content: flex-end;
+  }
+
+  /* Nav Item */
+  .nav-item {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: var(--gray-600);
+    user-select: none;
+  }
+
+  /* Nav Item Hover */
+  .nav-item:hover {
+    background-color: var(--gray-100);
+    transition: all 0.05s ease-in-out;
+    cursor: pointer;
+  }
+
+  .nav-item .bi {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.5rem;
+  }
+}
+
+/* Adaptação para telas menores que 1024px - Tablets */
+@media screen and (max-width: 1024px) {
+  /* Side Bar */
+  .side-bar {
+    width: 4rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-right: 1px solid var(--gray-200);
+    background-color: var(--white);
+    transition: all 0.05s linear;
+  }
+
+  /* Side Bar Header */
+  .side-bar-header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 5px;
+  }
+
+  /* Side Bar Nav */
+  .nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Nav List */
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  /* Nav Top */
+  .nav-top {
+    width: 100%;
+    height: 75%;
+    justify-content: flex-start;
+  }
+
+  /* Nav Bottom */
+  .nav-bottom {
+    width: 100%;
+    height: 25%;
+    justify-content: flex-end;
+  }
+
+  /* Nav Item */
+  .nav-item {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: var(--gray-600);
+    user-select: none;
+  }
+
+  /* Nav Item Hover */
+  .nav-item:hover {
+    background-color: var(--gray-100);
+    transition: all 0.05s ease-in-out;
+    cursor: pointer;
+  }
+
+  .nav-item .bi {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.5rem;
+  }
+
+  .nav-item .nav-link {
+    display: none;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .logo-container .logo {
+    display: none;
+    user-select: none;
+  }
+
+  .logo-container .logo-icon {
+    display: block;
+    width: 35px;
+    user-select: none;
+  }
+}
+
+/* Adaptação para telas menores que 768px - Smartphones */
+@media screen and (max-width: 768px) {
+
+  .side-bar {
+    display: none;
+  }
+
+  .bottom-bar {
+    width: 100%;
+    height: 60px;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-top: 1px solid var(--gray-200);
+    background-color: var(--white);
+    transition: all 0.05s linear;
+    z-index: 100;
+  }
+
+  .bottom-nav-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  .main {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
